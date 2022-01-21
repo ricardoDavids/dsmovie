@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 function Form() {
@@ -34,10 +35,17 @@ function Form() {
                         <button type="submit" className="btn btn-primary dsmovie-btn">Salvar</button>
                     </div>
                 </form >
+                <Link to= "/">
                 <button className="btn btn-primary dsmovie-btn mt-3">Cancelar</button>
+                </Link>
             </div >
         </div >
     );
 }
 
 export default Form; //Está exportado aqui o nosso componente
+
+//<button className="btn btn-primary dsmovie-btn mt-3">Cancelar</button>  --> o botão cancelar volta para a tela de listágem(onde estão as imagens com as estrelas e as avaliaçoes e onde tem o botão avaliar) 
+
+//Nota: 
+// O botão avaliar redireciona te para a tela do formulario(é a tela que tem as textBox para colocar o email e informa avaliação e dpois os botoes salvar e cancelar)
