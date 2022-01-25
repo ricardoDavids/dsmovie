@@ -13,6 +13,7 @@ public class Score {
 	
 	private Double value;
 	
+	
 	public Score() {
 		
 	}
