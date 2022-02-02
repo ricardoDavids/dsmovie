@@ -1,45 +1,20 @@
-import { Link } from 'react-router-dom';
-import './styles.css';
+import { useParams } from 'react-router-dom';
 
-function Form() {
+import FormCard from 'components/FormCard';
 
-    const movie = {
-        id: 1,
-        image: "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/jBJWaqoSCiARWtfV0GlqHrcdidd.jpg",
-        title: "The Witcher",
-        count: 2,
-        score: 4.5
-    };
+    //Vamos agora fazer com que este Form receba esse movie como argumento
+    /*Então e agora como eu faço para que este formulario ele capture o argumento que foi passado na rota como porexemplo form/2
+    Como eu pego esse 2?
+    
+    
+    Então eu irei usar o tal do use params que vai receber useParams e agora com esse parametro eu posso acesar aquele numero2 do form/2*/
+    function Form() { 
+
+         //Eu vou criar aqui um componente que na verdade esse componente é que vai criar aqui o "card" para mim, ou seja, o Form
+    const params = useParams();
 
     return (
-        <div className="dsmovie-form-container">
-            <img className="dsmovie-movie-card-image" src={movie.image} alt={movie.title} />
-            <div className="dsmovie-card-bottom-container">
-                <h3>{movie.title}</h3>
-                <form className="dsmovie-form">
-                    <div className="form-group dsmovie-form-group">
-                        <label htmlFor="email">Informe seu email</label>
-                        <input type="email" className="form-control" id="email" />
-                    </div>
-                    <div className="form-group dsmovie-form-group">
-                        <label htmlFor="score">Informe sua avaliação</label>
-                        <select className="form-control" id="score">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                    <div className="dsmovie-form-btn-container">
-                        <button type="submit" className="btn btn-primary dsmovie-btn">Salvar</button>
-                    </div>
-                </form >
-                <Link to= "/">
-                <button className="btn btn-primary dsmovie-btn mt-3">Cancelar</button>
-                </Link>
-            </div >
-        </div >
+       <FormCard movieId={`${params.movieId}`}/>
     );
 }
 
@@ -49,3 +24,5 @@ export default Form; //Está exportado aqui o nosso componente
 
 //Nota: 
 // O botão avaliar redireciona te para a tela do formulario(é a tela que tem as textBox para colocar o email e informa avaliação e dpois os botoes salvar e cancelar)
+
+//Nota importante: o nosso Form agora simplesmente vai pegar o parametro da requesição e repassar para o FormCard
