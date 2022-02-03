@@ -23,19 +23,17 @@ function Listing() {
         empty: true
     });
 
-
-
     useEffect(() => {
 
-        axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sort=title`)// aqui o sort é para dizer que os filmes sempre virão na mesma ordem, ordenados por ID ouo por exemplo por title
+        axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sort=id`)// aqui o sort é para dizer que os filmes sempre virão na mesma ordem, ordenados por ID ouo por exemplo por title
             .then(responseRequisicao => {
                 const data = responseRequisicao.data as MoviePage;
                 // console.log(data);//Console.log que é o console do navegador e data é um atributo e é onde vem o corpo da resposta e ai vou imprimir na consola do navegador
                 // setPageNumber(data.number);
                 setPage(data);
 
-           // }).catch(error => console.log(error)); //Se tua requisição der qualquer erro, ele vai  mostrar no console qual erro q foi
-            });
+             //Se tua requisição der qualquer erro, ele vai  mostrar no console qual erro q foi
+            })//.catch(error => console.log(error));
     }, [pageNumber]);
 
     //Forma ERRADA
@@ -49,11 +47,6 @@ function Listing() {
     Por exemplo, para vc executar uma coisa depois que a requesição chegar á resposta dela, depois que chegar a resposta, vc tera que colocar na frente da chamada do get, a palavra then
     e depois o que colocar dentro do then vai ser executado depois que a requesição voltar,
     porque a requesição que vc faz aqui, ou seja, esse get pode demorar um tempo para chegar, ou seja, é uma operação assincrona, tudo continua executando mas quando chegar a resposta, entao ai eu vou querer executar uma coisa dentro do then.  */
-
-
-
-
-
 
     return (
         <>
